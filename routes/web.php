@@ -2,17 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Racket;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use Illuminate\Http\Request;
+use App\Http\Controllers\RecommendationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,3 +12,5 @@ Route::get('/', function () {
 Route::get('/rackets', function () {
     return Racket::all();
 });
+
+Route::get('/recommend', [RecommendationController::class, 'recommend']);
