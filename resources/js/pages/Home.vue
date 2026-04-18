@@ -3,9 +3,7 @@
     <img class="watermark" :src="logoPath" alt="AMA Sport" />
 
     <header class="topbar">
-      <div class="logo-wrap">
-        <img class="logo" :src="logoPath" alt="AMA Sport" />
-      </div>
+      <img class="logo" :src="logoPath" alt="AMA Sport" />
 
       <nav class="menu">
         <a href="#">Ama Sports</a>
@@ -17,35 +15,66 @@
     <main class="hero-section">
       <section class="hero-left">
         <h1>BEM VINDO AO</h1>
-        <h2>Racket Advisor!</h2>
+        <h2>RACKET ADVISOR!</h2>
+
+        <div class="accent-line"></div>
 
         <p class="intro">
           Cansado de se sentir perdido na escolha<br>
-          do seu material de beach tennis ?<br>
-          Sentindo dores no braço ?<br>
-          Não está rendendo como deveria ?
+          do seu material de beach tennis?<br>
+          Sentindo dores no braço?<br>
+          Não está rendendo como deveria?
         </p>
 
         <p class="highlight">
           Descubra sua Raquete Ideal agora mesmo
         </p>
 
-        <p class="partnership">
-          Em parceria com AMA SPORT
-        </p>
+        <div class="partnership-row">
+          <span class="handshake">🤝</span>
+          <p class="partnership">
+            Em parceria com <strong>AMA SPORT</strong>
+          </p>
+        </div>
 
         <button class="discover-button" @click="nextPage">
-          Quero descobrir
+          Quero descobrir <span>→</span>
         </button>
-      </section>
 
-      <section class="hero-right">
-        <img class="racket-image" :src="racketPath" alt="Beach Tennis" />
+        <div class="benefits-card">
+          <div class="benefit">
+            <div class="benefit-icon">🎯</div>
+            <div class="benefit-text">
+              <strong>RECOMENDAÇÃO</strong>
+              <span>PERSONALIZADA</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="benefit">
+            <div class="benefit-icon">🛡️</div>
+            <div class="benefit-text">
+              <strong>ESCOLHA COM</strong>
+              <span>SEGURANÇA</span>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="benefit">
+            <div class="benefit-icon">📈</div>
+            <div class="benefit-text">
+              <strong>MAIS DESEMPENHO</strong>
+              <span>EM QUADRA</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
-    <footer class="footer">
-  © 2026 Racket Advisor • Em parceria com AMA Sport • Sistema de recomendação para beach tennis
+    <footer class="footer-simple">
+  © 2026 Racket Advisor. Todos os direitos reservados. Software <strong>Goettenauer</strong>.
 </footer>
   </div>
 </template>
@@ -55,30 +84,26 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const logoPath = '/images/logo-ama.png'
-const racketPath = '/images/racket.png'
 
 function nextPage() {
   router.push('/nivel')
 }
 </script>
 
-<style>
-:global(*) {
+<style scoped>
+* {
   box-sizing: border-box;
-}
-
-:global(body) {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f3f3f3;
 }
 
 .page {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
-  background: #f3f3f3;
-  padding: 24px 42px 32px 42px;
+  background:
+    linear-gradient(rgba(245, 247, 249, 0.86), rgba(245, 247, 249, 0.86)),
+    url('/images/fundo-inicial.png') no-repeat right center;
+  background-size: cover;
+  padding: 24px 42px 0;
 }
 
 .watermark {
@@ -86,8 +111,8 @@ function nextPage() {
   inset: 0;
   margin: auto;
   width: 900px;
-  max-width: 70vw;
-  opacity: 0.025;
+  max-width: 68vw;
+  opacity: 0.03;
   filter: brightness(0);
   pointer-events: none;
   user-select: none;
@@ -98,196 +123,222 @@ function nextPage() {
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .logo {
   width: 95px;
-  height: auto;
-  display: block;
   filter: brightness(0);
 }
 
 .menu {
   display: flex;
   gap: 44px;
-  margin-top: 6px;
 }
 
 .menu a {
   text-decoration: none;
-  color: #222;
+  color: #1f2937;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .hero-section {
   position: relative;
   z-index: 2;
-  max-width: 1420px;
-  margin: 48px auto 0 auto;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
-  column-gap: 40px;
+  max-width: 1480px;
+  margin: 36px auto 0;
 }
 
 .hero-left {
-  max-width: 720px;
+  max-width: 780px;
 }
 
 .hero-left h1 {
   margin: 0;
-  font-size: 78px;
+  font-size: 84px;
   line-height: 0.95;
   font-weight: 900;
-  color: #000;
-  text-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+  color: #0d1726;
 }
 
 .hero-left h2 {
-  margin: 14px 0 0 0;
-  font-size: 72px;
-  line-height: 1;
-  font-weight: 300;
-  color: #000;
+  margin: 8px 0 0;
+  font-size: 86px;
+  line-height: 0.95;
+  font-weight: 900;
+  background: linear-gradient(90deg, #1d8797, #16b0bb, #2970c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.accent-line {
+  width: 72px;
+  height: 6px;
+  border-radius: 999px;
+  background: #20a8b7;
+  margin-top: 24px;
 }
 
 .intro {
-  margin-top: 38px;
-  font-size: 20px;
-  line-height: 1.22;
-  color: #222;
+  margin-top: 30px;
+  font-size: 27px;
+  line-height: 1.25;
+  color: #1f2937;
 }
 
 .highlight {
   margin-top: 28px;
-  font-size: 20px;
-  color: #222;
+  font-size: 24px;
+  font-weight: 700;
+  color: #18212f;
+}
+
+.partnership-row {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.handshake {
+  font-size: 34px;
 }
 
 .partnership {
-  margin-top: 18px;
-  font-size: 18px;
-  color: #ababab;
+  margin: 0;
+  font-size: 20px;
+  color: #7a8594;
+}
+
+.partnership strong {
+  color: #1c8ea1;
 }
 
 .discover-button {
-  margin-top: 18px;
-  width: 265px;
-  height: 54px;
+  margin-top: 26px;
+  width: 420px;
+  height: 72px;
   border: none;
-  border-radius: 8px;
-  background: #3396ea;
-  color: #fff;
-  font-size: 18px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #17b0b4, #1483b2);
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(51, 150, 234, 0.34);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 12px 26px rgba(21, 144, 181, 0.24);
 }
 
-.discover-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 9px 18px rgba(51, 150, 234, 0.40);
+.discover-button span {
+  margin-left: 12px;
+  font-size: 30px;
 }
 
-.hero-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.racket-image {
-  width: 320px;
+.benefits-card {
+  margin-top: 34px;
+  width: 760px;
   max-width: 100%;
-  height: auto;
-  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.10));
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
 }
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.benefit-icon {
+  font-size: 30px;
+}
+
+.benefit-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-text strong,
+.benefit-text span {
+  font-size: 15px;
+  color: #1f2937;
+}
+
+.footer-simple {
+  position: absolute;
+  bottom: 18px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #7d8794;
+  z-index: 2;
+}
+
 
 @media (max-width: 1200px) {
-  .hero-section {
-    grid-template-columns: 1fr;
-    row-gap: 40px;
-    margin-top: 36px;
-  }
-
-  .hero-left {
-    max-width: 100%;
-  }
-
   .hero-left h1 {
-    font-size: 62px;
+    font-size: 64px;
   }
 
   .hero-left h2 {
-    font-size: 56px;
+    font-size: 66px;
   }
 
-  .intro,
-  .highlight {
-    font-size: 18px;
+  .intro {
+    font-size: 22px;
   }
 
-  .partnership {
-    font-size: 16px;
+  .benefits-card {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
   }
 
-  .hero-right {
-    justify-content: center;
-  }
-
-  .racket-image {
-    width: 250px;
-  }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .page {
-    padding: 18px 20px 28px 20px;
+    padding: 18px 20px 110px;
   }
 
   .topbar {
     flex-direction: column;
     gap: 16px;
+    align-items: flex-start;
   }
 
   .menu {
-    gap: 18px;
     flex-wrap: wrap;
+    gap: 16px;
   }
 
   .hero-left h1 {
-    font-size: 46px;
+    font-size: 48px;
   }
 
   .hero-left h2 {
-    font-size: 42px;
+    font-size: 50px;
   }
 
-  .intro,
-  .highlight,
-  .partnership {
-    font-size: 16px;
+  .intro {
+    font-size: 18px;
+  }
+
+  .highlight {
+    font-size: 20px;
   }
 
   .discover-button {
     width: 100%;
+    font-size: 22px;
   }
 
-  .watermark {
-    width: 700px;
-    max-width: 120vw;
-  }
-}
-
-.footer {
-  position: fixed;
-  bottom: 12px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 13px;
-  color: #9b9b9b;
-  z-index: 2;
 }
 </style>
