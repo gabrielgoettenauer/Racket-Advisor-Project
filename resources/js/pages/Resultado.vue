@@ -534,17 +534,26 @@ onMounted(loadRecommendation);
     cursor: pointer;
 }
 
-.site-button {
-    min-width: 320px;
-    height: 68px;
-    border: none;
-    border-radius: 20px;
-    background: linear-gradient(90deg, #2c9cff, #256ef1);
-    color: white;
-    font-size: 22px;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: 0 12px 24px rgba(44, 156, 255, 0.22);
+.site-button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  width:320px;
+  height:64px;
+
+  background:linear-gradient(90deg,#2f8cff,#1d63f2);
+  color:#fff;
+  text-decoration:none;
+
+  font-size:22px;
+  font-weight:600;
+
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(30,136,255,.25);
+
+  transition:.2s ease;
 }
 
 .secondary-btn {
